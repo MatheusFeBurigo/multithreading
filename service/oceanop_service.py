@@ -7,7 +7,7 @@ import httpx
 class OceanOpService:
 
     async def oAuthenticate(self, force=False):
-        token_file = "/downloads/oceanop_token.txt"
+        token_file = "downloads/oceanop_token.txt"
         btoken = [] if force else glob(token_file)
         username = os.getenv("OCEANOP_USER")
         password = os.getenv("OCEANOP_PASSWORD")
@@ -28,6 +28,7 @@ class OceanOpService:
 
         if response.status_code == 200:
             data = response.json()
+            print("Authenticated", data)
             async with aiofiles.open("downloads/oceanop_token.txt", "w") as f:
                 await f.write(json.dumps(data, indent=4))
             return f"{data['token_type']} {data['access_token']}"
@@ -49,8 +50,8 @@ class OceanOpService:
         url = f"https://petrobras.ttforecast.com.br/api/v1/bulletins/{area_id}/pdf"
         headers = {"Authorization": await OceanOpService.oAuthenticate(force)}
 
-        with httpx.Client(timeout=60) as client:
-            response = client.get(url, headers=headers)
+        async with httpx.AsyncClient(timeout=60) as client:
+            response = await client.get(url, headers=headers)
             
         if response.status_code == 200:
             os.makedirs(f"downloads/{terminal}", exist_ok=True)
@@ -75,7 +76,7 @@ class OceanOpService:
 
         if response.status_code == 200:
             response = response.json()
-            async with aiofiles.open("/downloads/oceanop_areas.json", "w") as f:
+            async with aiofiles.open("downloads/oceanop_areas.json", "w") as f:
                 await f.write(json.dumps(response, indent=4))
             return response
         elif response.status_code == 403:

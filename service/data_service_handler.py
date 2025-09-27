@@ -11,21 +11,19 @@ class DataServiceHandler:
 
         tasks = []
 
-        for anexo in inmets_anexos:
-            tasks.append(
-                inmet_service.fetch_data(
-                    link_image=anexo["link"],
-                    image_name=anexo["nome"],
-                    terminal=terminal,
-                )
-            )
-
         for anexo in oceanop_anexos:
             tasks.append(
                 DataServiceHandler._process_oceanop(anexo, terminal)
             )
 
         await asyncio.gather(*tasks)
+
+        for anexo in inmets_anexos:
+            inmet_service.fetch_data(
+                link_image=anexo["link"],
+                image_name=anexo["nome"],
+                terminal=terminal,
+            )
 
     @staticmethod
     async def _process_oceanop(anexo, terminal):
