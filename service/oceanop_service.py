@@ -7,7 +7,7 @@ import httpx
 class OceanOpService:
 
     async def oAuthenticate(self, force=False):
-        token_file = "downloads/oceanop_token.txt"
+        token_file = "/downloads/oceanop_token.txt"
         btoken = [] if force else glob(token_file)
         username = os.getenv("OCEANOP_USER")
         password = os.getenv("OCEANOP_PASSWORD")
@@ -64,7 +64,7 @@ class OceanOpService:
             ) as f:
                 await f.write(f"{name_report};{url}\n")
         else:
-            self.get_pdf(area_id, terminal, name_report, force=True)
+            OceanOpService.get_pdf(area_id, terminal, name_report, force=True)
 
     async def _get_areas(force):
         url = "https://petrobras.ttforecast.com.br/api/v1/areas/ids"
