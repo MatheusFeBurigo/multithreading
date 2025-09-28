@@ -16,14 +16,12 @@ class DataServiceHandler:
                 DataServiceHandler._process_oceanop(anexo, terminal)
             )
 
-        await asyncio.gather(*tasks)
-        
         for anexo in inmets_anexos:
-            inmet_service.fetch_data(
-                anexo["link"],
-                anexo["nome"],
-                terminal,
+            tasks.append(
+                inmet_service.fetch_data(anexo["link"], anexo["nome"], terminal)
             )
+
+        await asyncio.gather(*tasks)
 
     @staticmethod
     async def _process_oceanop(anexo, terminal):

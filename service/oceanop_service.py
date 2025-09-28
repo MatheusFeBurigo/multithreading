@@ -70,7 +70,7 @@ class OceanOpService:
 
         with httpx.Client(timeout=30) as client:
             response = client.get(url, headers=headers)
-            response.raise_for_status
+            response.raise_for_status()
             print(response.status_code)
 
         if response.status_code == 200:

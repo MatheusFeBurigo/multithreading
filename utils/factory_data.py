@@ -10,7 +10,7 @@ from service.data_service_handler import DataServiceHandler as data_service_hand
 
 class FactoryData:
     async def organize_data():
-        fuso = datetime.now().replace(hour=20, minute=0, second=0, microsecond=0)
+        fuso = datetime.now().replace(hour=8, minute=0, second=0, microsecond=0)
         json_files = glob(os.path.join("downloads", f"TERMINAIS_{fuso.hour:02d}", "*.json"))
 
         tasks = []
