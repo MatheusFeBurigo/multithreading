@@ -20,7 +20,6 @@ class InmetService:
         with httpx.Client(timeout=30) as client:
             response = client.get(link_image)
             response.raise_for_status
-            print("Iment:", response.status_code)    
 
         try:
             encoded_data = response.json()["base64"]

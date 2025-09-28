@@ -6,15 +6,15 @@ import httpx
 
 class OceanOpService:
 
-    async def oAuthenticate(self, force=False):
+    async def oAuthenticate(force=False):
         token_file = "downloads/oceanop_token.txt"
         btoken = [] if force else glob(token_file)
         username = os.getenv("OCEANOP_USER")
         password = os.getenv("OCEANOP_PASSWORD")
 
         if len(btoken) == 1:
-            async with aiofiles.open(btoken[0], "r") as f:
-                oauth_token = json.loads(await f.read())
+            with open(btoken[0], "r") as f:
+                oauth_token = json.loads(f.read())
             return f"{oauth_token['token_type']} {oauth_token['access_token']}"
 
         url = "https://petrobras.ttforecast.com.br/api/v1/login/oauth"
@@ -28,16 +28,15 @@ class OceanOpService:
 
         if response.status_code == 200:
             data = response.json()
-            print("Authenticated", data)
-            async with aiofiles.open("downloads/oceanop_token.txt", "w") as f:
-                await f.write(json.dumps(data, indent=4))
+            with open("downloads/oceanop_token.txt", "w") as f:
+                f.write(json.dumps(data, indent=4))
             return f"{data['token_type']} {data['access_token']}"
         return None
 
-    async def search_for_area_json(area, force=False):
+    async def search_for_area_json(area, headers, force=False):
         data_areas = glob("downloads/oceanop_areas.json")
         if len(data_areas) == 0 or force:
-            areas = await OceanOpService._get_areas(force)
+            areas = OceanOpService._get_areas(force, headers)
             if areas is None:
                 return None
         else:
@@ -46,9 +45,8 @@ class OceanOpService:
 
         return [a["id"] for a in areas if a["name"] == area][0]
 
-    async def get_pdf(area_id, terminal, name_report, force=False):
+    async def get_pdf(headers, area_id, terminal, name_report, force=False):
         url = f"https://petrobras.ttforecast.com.br/api/v1/bulletins/{area_id}/pdf"
-        headers = {"Authorization": await OceanOpService.oAuthenticate(force)}
 
         async with httpx.AsyncClient(timeout=60) as client:
             response = await client.get(url, headers=headers)
@@ -67,18 +65,16 @@ class OceanOpService:
         else:
             OceanOpService.get_pdf(area_id, terminal, name_report, force=True)
 
-    async def _get_areas(force):
+    def _get_areas(force, headers):
         url = "https://petrobras.ttforecast.com.br/api/v1/areas/ids"
-        headers = {"Authorization": await OceanOpService.oAuthenticate(force)}
 
         with httpx.Client(timeout=30) as client:
             response = client.get(url, headers=headers)
+            response.raise_for_status
+            print(response.status_code)
 
         if response.status_code == 200:
             response = response.json()
-            async with aiofiles.open("downloads/oceanop_areas.json", "w") as f:
-                await f.write(json.dumps(response, indent=4))
+            with open("downloads/oceanop_areas.json", "w") as f:
+                f.write(json.dumps(response, indent=4))
             return response
-        elif response.status_code == 403:
-            return OceanOpService._get_areas(await OceanOpService.oAuthenticate(force=True))
-        return None

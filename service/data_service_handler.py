@@ -17,19 +17,21 @@ class DataServiceHandler:
             )
 
         await asyncio.gather(*tasks)
-
+        
         for anexo in inmets_anexos:
             inmet_service.fetch_data(
-                link_image=anexo["link"],
-                image_name=anexo["nome"],
-                terminal=terminal,
+                anexo["link"],
+                anexo["nome"],
+                terminal,
             )
 
     @staticmethod
     async def _process_oceanop(anexo, terminal):
-        area_id = await oceanop_service.search_for_area_json(anexo["link"])
+        headers = {"Authorization": await oceanop_service.oAuthenticate(force=False)}
+        area_id = await oceanop_service.search_for_area_json(anexo["link"], headers)
         if area_id is not None:
             await oceanop_service.get_pdf(
+                headers,
                 area_id,
                 terminal,
                 f"{anexo['nome']}.{anexo['extension']}",
