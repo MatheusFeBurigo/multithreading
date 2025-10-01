@@ -1,4 +1,5 @@
 import asyncio
+import os
 from service.inmet_service import InmetService as inmet_service
 from service.oceanop_service import OceanOpService as oceanop_service
 
@@ -34,4 +35,4 @@ class DataServiceHandler:
                 terminal,
                 f"{anexo['nome']}.{anexo['extension']}",
             )
-
+        

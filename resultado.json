@@ -1,0 +1,136 @@
+{
+    "RIO GRANDE - RS": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA RIO GRANDE - INMET - 00Z",
+            "PREVISÃO RIO GRANDE - OCEANOP"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "SÃO SEBASTIÃO - SP": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "PREVISÃO SÃO SEBASTIÃO - OCEANOP",
+            "METEOGRAMA SÃO SEBASTIÃO - INMET - 00Z"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "ANGRA DOS REIS - RJ": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA ANGRA DOS REIS - INMET - 00Z",
+            "PREVISÃO ANGRA DOS REIS - OCEANOP"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "NORTE CAPIXABA - ES": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA SÃO MATEUS - INMET - 00Z",
+            "PREVISÃO TERMINAL NORTE CAPIXABA - OCEANOP"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "MADRE DE DEUS - BA": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA MADRE DE DEUS - INMET - 00Z",
+            "PREVISÃO BAÍA DE TODOS OS SANTOS - OCEANOP"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "ARACAJU - SE": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA ARACAJU - INMET - 00Z",
+            "PREVISÃO ARACAJU - OCEANOP"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "SUAPE - PE": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA IPOJUCA - INMET - 00Z",
+            "PREVISÃO SUAPE - OCEANOP"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "GUAMARÉ - RN": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA GUAMARÉ - INMET - 00Z",
+            "PREVISÃO GUAMARÉ - OCEANOP"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "MUCURIPE E PECEM - CE": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA FORTALEZA - INMET - 00Z",
+            "PREVISÃO FORTALEZA - OCEANOP"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "PARANAGUÁ - PR": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA PARANAGUÁ - INMET - 00Z"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "BAÍA DE GUANABARA - RJ": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA RIO DE JANEIRO - INMET - 00Z",
+            "PREVISÃO RIO DE JANEIRO - OCEANOP"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "BARRA DO RIACHO - ES": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "PREVISÃO BARRA DO RIACHO - OCEANOP"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": [
+            {
+                "ANEXO": "METEOGRAMA ARACRUZ  - INMET - 00Z",
+                "LINK": "https://apiprevmet3.inmet.gov.br/meteograma/3300607/{datetime_now}/00"
+            }
+        ]
+    },
+    "MACEIÓ - AL": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA MACEIÓ - INMET - 00Z"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "BELÉM E BARCARENA - PA": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA BELÉM - INMET - 00Z"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "SÃO LUÍS - MA": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA SÃO LUÍS - INMET - 00Z"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "AMAZONAS - AM": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA COARI - INMET - 00Z",
+            "METEOGRAMA MANAUS - INMET - 00Z",
+            "METEOGRAMA CODAJÁS - INMET - 00Z",
+            "METEOGRAMA ITACOATIARA - INMET - 00Z"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "VITÓRIA - ES": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA VITÓRIA - INMET - 00Z",
+            "PREVISÃO VITÓRIA - OCEANOP"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "SANTOS - SP": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "PREVISÃO SANTOS - OCEANOP",
+            "METEOGRAMA SANTOS - INMET - 00Z"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    },
+    "NITERÓI - RS": {
+        "ARQUIVOS_ENCONTRADOS": [
+            "METEOGRAMA CANOAS - INMET - 00Z"
+        ],
+        "ARQUIVOS_NAO_ENCONTRADOS": []
+    }
+}

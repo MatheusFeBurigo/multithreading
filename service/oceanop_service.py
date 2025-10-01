@@ -62,6 +62,7 @@ class OceanOpService:
                 f"downloads/{terminal}/list.anexo", "a", encoding="utf-8"
             ) as f:
                 await f.write(f"{name_report};{url}\n")
+
         else:
             OceanOpService.get_pdf(area_id, terminal, name_report, force=True)
 
@@ -71,7 +72,6 @@ class OceanOpService:
         with httpx.Client(timeout=30) as client:
             response = client.get(url, headers=headers)
             response.raise_for_status()
-            print(response.status_code)
 
         if response.status_code == 200:
             response = response.json()
